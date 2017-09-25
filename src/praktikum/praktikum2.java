@@ -56,7 +56,7 @@ public class praktikum2 extends javax.swing.JFrame {
         b44 = new javax.swing.JTextField();
         b33 = new javax.swing.JTextField();
         jumlahbil = new javax.swing.JComboBox<>();
-        hasilnya = new javax.swing.JTextField();
+        hasil = new javax.swing.JTextField();
         hitung = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -140,7 +140,7 @@ public class praktikum2 extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                        .addComponent(hasilnya, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(hasil, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
                         .addComponent(ket, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,7 +175,7 @@ public class praktikum2 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(hitung)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(hasilnya, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(hasil, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
 
@@ -190,29 +190,29 @@ public class praktikum2 extends javax.swing.JFrame {
         setJenis();}
     
     public void setJenis(){
-        if(jenis.getSelectedItem().equals("Penjumlahan")){
-            jns = "Penjumlahan";
-            ket.setText("Penjumlahan");
+        if(jenis.getSelectedItem().equals("penjumlahan")){
+            jns = "penjumlahan";
+            ket.setText("penjumlahan");
             panel.setVisible(true);
             jumlahbil.setEnabled(true);
         }
-        else if(jenis.getSelectedItem().equals("Pengurangan")){
-            jns = "Pengurangan";
-            ket.setText("Pengurangan");
+        else if(jenis.getSelectedItem().equals("pengurangan")){
+            jns = "pengurangan";
+            ket.setText("pengurangan");
             panel.setVisible(true);
             jumlahbil.setEnabled(true);
         }
-        else if(jenis.getSelectedItem().equals("Perkalian")){
-            jns = "Perkalian";
-            ket.setText("Perkalian");
-            Panel.setVisible(true);
-            milihbilangan.setEnabled(true);
+        else if(jenis.getSelectedItem().equals("perkalian")){
+            jns = "perkalian";
+            ket.setText("perkalian");
+            panel.setVisible(true);
+          jumlahbil.setEnabled(true);
         }
-        else if(jenis.getSelectedItem().equals("Pembagian")){
-            jns = "Pembagian";
-            ket.setText("Pembagian");
-            Panel.setVisible(true);
-            milihbilangan.setEnabled(true);
+        else if(jenis.getSelectedItem().equals("pembagian")){
+            jns = "pembagian";
+            ket.setText("pembagian");
+            panel.setVisible(true);
+            jumlahbil.setEnabled(true);
         }
         
   
@@ -237,22 +237,22 @@ public class praktikum2 extends javax.swing.JFrame {
         } else if(milihbilangan.getSelectedItem().equals("3")){
             bil1.setVisible(true);
             bil2.setVisible(true);
-            b1.setVisible(true);
-            b2.setVisible(true);
+            b11.setVisible(true);
+            b22.setVisible(true);
             bil3.setVisible(true);
             bil4.setVisible(false);
-            b3.setVisible(true);
-            b4.setVisible(false);
+            b33.setVisible(true);
+            b44.setVisible(false);
             jml = 3; 
         } else if(milihbilangan.getSelectedItem().equals("4")){
             bil1.setVisible(true);
             bil2.setVisible(true);
-            b1.setVisible(true);
-            b2.setVisible(true);
+            b11.setVisible(true);
+            b22.setVisible(true);
             bil3.setVisible(true);
             bil4.setVisible(true);
-            b3.setVisible(true);
-            b4.setVisible(true);
+            b33.setVisible(true);
+            b44.setVisible(true);
             jml = 4; }
         
     }
@@ -265,7 +265,71 @@ public class praktikum2 extends javax.swing.JFrame {
     }//GEN-LAST:event_b11ActionPerformed
 
     private void hitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hitungActionPerformed
-
+     Double hsl = 0.0;
+        Double a1, a2, a3, a4;
+        a1 = Double.parseDouble(b11.getText().toString());
+        a2 = Double.parseDouble(b22.getText().toString());
+        a3 = Double.parseDouble(b33.getText().toString());
+        a4 = Double.parseDouble(b44.getText().toString());
+        
+        if(jns.equals("penjumlahan")){
+            if(jml == 2){
+                hsl = a1 + a2;
+                hasil.setText("" + a1 + "+" + a2 + "=" + hsl);
+            }
+            
+            if(jml == 3){
+                hsl = a1 + a2 + a3;
+                hasil.setText("" + a1 + "+" + a2 + "+" + a3 + "=" + hsl);
+            }
+            if(jml == 4){
+                hsl = a1 + a2 + a3 + a4;
+                hasil.setText("" + a1 + " + " + a2 + " + " + a3 + " + " + a4 + " = " + hsl);
+            }
+        }
+        else if(jns.equals("pengurangan")){
+            if(jml == 2){
+                hsl = a1 - a2;
+                hasil.setText(" " + a1 + " - " + a2 + " = " + hsl);
+            }
+            if(jml == 3){
+                hsl = a1 - a2 - a3;
+                hasil.setText(" " + a1 + " - " + a2 + " - " + a3 + " = " + hsl);
+            }
+            if(jml == 4){
+                hsl = a1 - a2 - a3 - a4;
+                hasil.setText(" " + a1 + " - "  + a2 + " - " + a3 + " - " + a4 + " = " + hsl);
+            }
+        }
+        else if(jns.equals("perkalian")){
+            if(jml == 2){
+                hsl = a1 * a2;
+                hasil.setText(" " + a1 + " - " + a2 + " = " + hsl);
+            }
+            if(jml == 3){
+                hsl = a1 * a2 * a3;
+                hasil.setText(" " + a1 + " * " + a2 + " * " + a3 + " = " + hsl);
+            }
+            if(jml == 4){
+                hsl = a1 * a2 * a3 * a4;
+                hasil.setText(" " + a1 + " * " + a2 + " * " + a3 + " * " + a4 + " = " + hsl);
+            }
+        }
+        else if(jns.equals("pembagian")){
+            if(jml == 2){
+                hsl = a1 / a2;
+                hasil.setText(" " + a1 + " : " + a2 + " = " + hsl);
+            }
+            if(jml == 3){
+                hsl = a1 / a2 / a3;
+                hasil.setText(" " + a1 + " : " + a2 + " : " + a3 + " = " + hsl);
+            }
+            if(jml == 4){
+                hsl = a1 / a2 / a3 / a4;
+                hasil.setText(" " + a1 + " : " + a2 + " : " + a3 + " : " + a4 + " = " + hsl);
+            }
+        }
+    }
     }//GEN-LAST:event_hitungActionPerformed
 
     /**
@@ -312,7 +376,7 @@ public class praktikum2 extends javax.swing.JFrame {
     private javax.swing.JLabel bil2;
     private javax.swing.JLabel bil3;
     private javax.swing.JLabel bil4;
-    private javax.swing.JTextField hasilnya;
+    private javax.swing.JTextField hasil;
     private javax.swing.JButton hitung;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -323,4 +387,4 @@ public class praktikum2 extends javax.swing.JFrame {
     private javax.swing.JLabel ket;
     private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables
-}
+}}
